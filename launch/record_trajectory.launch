@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<launch>
+	<node name="eef_trajectory_recorder_node"  pkg="kinesthetic_teaching_dmp" type="trajectory_recorder_node.py" output="screen"/>
+</launch>
