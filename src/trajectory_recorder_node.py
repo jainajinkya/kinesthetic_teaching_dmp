@@ -45,17 +45,20 @@ def traj_callback(msg):
 		ee_pose.header.stamp = pt.time_from_start.to_sec()
 		ee_traj.append(copy.deepcopy(ee_pose))
 
+	fb = raw_input('Should I save the trajectory? Enter yes/no ')
 
-	print "Recording Trajectories with Ref frame: ", ref_frame, "and eef_frame: ", req_frame	
+	if fb == 'yes':
+		# Save the trajecotry
+		filename = cwd + '/src/traj_data/demo_' + str(counter) + '.pickle'
+		file = open(filename,'wb')
+		pickle.dump(ee_traj, file) 
+		file.close()
 
-	# Save the trajecotry
-	filename = cwd + '/src/traj_data/demo_' + str(counter) + '.pickle'
-	file = open(filename,'wb')
-	pickle.dump(ee_traj, file) 
-	file.close()
+		print "Saved Trajectories with Ref frame: ", ref_frame, "and eef_frame: ", req_frame, "in file: demo_", str(counter)	
 
-	counter += 1
-
+		counter += 1
+	else:
+		pass
 
 
 if __name__=='__main__':

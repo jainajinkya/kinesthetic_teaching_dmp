@@ -232,7 +232,7 @@ def main():
 
     arm = ArmMoveIt(planning_frame='right_link_base', _arm_name='right')
 
-    goto_start(arm)
+    #goto_start(arm)
 
     rospack = rospkg.RosPack()
     cwd = '/home/vector/data/'
@@ -275,9 +275,9 @@ def main():
     x_dot_0 = 7*[0.0]   
     t_0 = 0                
     #goal = process_for_dmp([goal_pose.pose])[0]
-    goal = process_for_dmp_quat([goal_pose.pose])[0]
+    #goal = process_for_dmp_quat([goal_pose.pose])[0]
     #goal = process_for_dmp([playback_traj[-1]])[0] 
-    #goal = process_for_dmp_quat([playback_traj[-1]])[0] 
+    goal = process_for_dmp_quat([playback_traj[-1]])[0] 
     #goal[0] -= 0.45
     #goal_thresh = [0.05, 0.05, 0.05, 0.1, 0.1, 0.1]
     goal_thresh = [0.05, 0.05, 0.05, 0.01, 0.01, 0.01, 0.01]
